@@ -9,7 +9,8 @@ import jakarta.validation.constraints.NotBlank;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq_gen")
+    @SequenceGenerator(name = "category_seq_gen", sequenceName = "CATEGORY_SEQ", allocationSize=1)
     @Column(name = "category_id")
     private Long id;
 

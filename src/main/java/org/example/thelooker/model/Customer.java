@@ -9,7 +9,8 @@ import jakarta.validation.constraints.NotBlank;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
+    @SequenceGenerator(name = "customer_seq_gen", sequenceName = "CUSTOMER_SEQ", allocationSize=1)
     private Long id;
 
     @NotBlank

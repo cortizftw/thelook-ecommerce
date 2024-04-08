@@ -10,7 +10,8 @@ import jakarta.validation.constraints.NotNull;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq_gen")
+    @SequenceGenerator(name = "product_seq_gen", sequenceName = "PRODUCT_SEQ", allocationSize=1)
     @Column(name = "product_id")
     private Long id;
 
