@@ -1,5 +1,6 @@
 package org.example.thelooker.controller;
 
+import org.example.thelooker.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import jakarta.validation.Valid;
@@ -28,10 +29,10 @@ public class AuthController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "index"; // Assuming you have an index.html template
-    }
+//    @GetMapping("/")
+//    public String index() {
+//        return "index"; // Assuming you have an index.html template
+//    }
 
     @GetMapping("/login")
     public String login() {
@@ -42,6 +43,12 @@ public class AuthController {
     public String showRegistrationForm(Model model) {
         model.addAttribute("customer", new Customer()); // Make sure this matches your th:object in the form
         return "register";
+    }
+
+    @GetMapping("/")
+    public String showProduct(Model model) {
+        model.addAttribute("product", new Product()); // Make sure this matches your th:object in the form
+        return "index";
     }
 
     // handler method to handle user registration form submit request
