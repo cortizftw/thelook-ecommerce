@@ -8,11 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class AdminController {
 
-    @GetMapping("/admin/welcome")
+    @GetMapping("/admin")
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     public String adminAccess() {
-        return "admin welcome page";
+        return "admin";
     }
 
+    @GetMapping("/admin/products")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+    public String adminProducts() {
+        return "admin-products";
+    }
 
+    @GetMapping("/admin/users")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+    public String adminUsers() {
+        return "admin-users";
+    }
 }
