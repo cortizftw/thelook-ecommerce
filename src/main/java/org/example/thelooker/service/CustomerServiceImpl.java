@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setEmail(customerDto.getEmail());
         // encrypt the password using spring security
         customer.setPassword(passwordEncoder.encode(customerDto.getPassword()));
-        customer.setRole("ROLE_ADMIN");
+        customer.setRole("ROLE_USER");
         customer.setUsername(customerDto.getUsername());
         customerRepository.save(customer);
     }

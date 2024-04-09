@@ -52,8 +52,7 @@ public class AuthController {
     }
 
     @GetMapping("/")
-    public String showProduct(Model model) {
-        model.addAttribute("product", new Product());
+    public String index() {
         return "index";
     }
 
