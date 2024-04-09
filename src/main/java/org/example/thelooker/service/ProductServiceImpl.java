@@ -6,6 +6,8 @@ import org.example.thelooker.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductServiceImpl implements ProductService{
 
@@ -48,7 +50,21 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<ProductDto> getAllProducts() {
-        return null;
+        List<Product> products = productRepository.findAll();
+        return products.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    private ProductDto convertToDto(Product product) {
+        ProductDto productDto = new ProductDto();
+        productDto.setId(product.getId());
+        productDto.setDescription(product.getDescription());
+        productDto.setImage(product.getImage());
+        productDto.setName(product.getName());
+        productDto.setPrice(product.getPrice());
+        productDto.setQuantity(product.getQuantity());
+        productDto.setWeight(product.getWeight());
+        productDto.setCategory(product.getCategory());
+        return productDto;
     }
 
     @Override

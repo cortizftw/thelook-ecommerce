@@ -1,6 +1,7 @@
 package org.example.thelooker.service;
 
 import org.example.thelooker.dto.ProductDto;
+import org.example.thelooker.model.Product;
 
 import java.util.List;
 
