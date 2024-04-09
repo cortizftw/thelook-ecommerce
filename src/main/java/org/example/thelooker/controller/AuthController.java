@@ -29,25 +29,31 @@ public class AuthController {
         this.customerService = customerService;
     }
 
-//    @GetMapping("/")
-//    public String index() {
-//        return "index"; // Assuming you have an index.html template
-//    }
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // Assuming you have a login.html template
+        return "login";
     }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("customer", new Customer()); // Make sure this matches your th:object in the form
+        model.addAttribute("customer", new Customer());
         return "register";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
     }
 
     @GetMapping("/")
     public String showProduct(Model model) {
-        model.addAttribute("product", new Product()); // Make sure this matches your th:object in the form
+        model.addAttribute("product", new Product());
         return "index";
     }
 
