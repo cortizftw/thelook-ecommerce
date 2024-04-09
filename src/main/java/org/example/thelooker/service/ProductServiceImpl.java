@@ -6,6 +6,7 @@ import org.example.thelooker.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -69,8 +70,32 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductDto getProductById(Long id) {
-        return null;
+        // Fetch the product entity using the repository
+        Optional<Product> productOptional = productRepository.findById(id);
+
+        // If the product is found, map it to a ProductDto and return
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            ProductDto productDto = new ProductDto();
+
+            // Assuming you have a constructor in ProductDto to handle this mapping,
+            // otherwise set each field manually.
+            productDto.setId(product.getId());
+            productDto.setName(product.getName());
+            productDto.setDescription(product.getDescription());
+            productDto.setImage(product.getImage());
+            productDto.setPrice(product.getPrice());
+            productDto.setQuantity(product.getQuantity());
+            productDto.setWeight(product.getWeight());
+            productDto.setCategory(product.getCategory());
+
+            return productDto;
+        }
+
+        // Return null or throw an exception if the product doesn't exist
+        return null; // Consider throwing a custom exception here for better error handling
     }
+
 
     @Override
     public ProductDto getProductByName(String name) {
