@@ -53,26 +53,5 @@ public class UserController {
         return "product-detail"; // name of the Thymeleaf template for product details
     }
 
-    @PostMapping("/add-to-cart")
-    public String addToCart(@RequestParam("productId") Long productId,
-                            @RequestParam("quantity") int quantity,
-                            RedirectAttributes redirectAttributes) {
-        Long customerId = getCurrentCustomerId(); // Retrieve this from the session or security context
-        try {
-            CartServiceImpl.addProductToCart(customerId, productId, quantity);
-            redirectAttributes.addFlashAttribute("successMessage", "Product added to cart successfully!");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "There was a problem adding the product to the cart.");
-        }
-        return "redirect:/products"; // Redirect back to the products page or cart page as preferred
-    }
 
-    public Long getCurrentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-            CustomUserDetailsService userDetails = (CustomUserDetailsService) authentication.getPrincipal();
-            return userDetails.getUserId();
-        }
-        return null; // Or handle accordingly
-    }
 }
