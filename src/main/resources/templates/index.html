@@ -7,14 +7,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <style>
-        body { padding: 20px; }
+        body {
+            margin: 0;
+            padding: 0;
+            /* Set background image */
+            background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            /* Center and scale the background image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh; /* Ensure the background covers the entire viewport */
+            color: #fff; /* Text color */
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff; /* White text color */
+        }
+        .container-fluid {
+            padding: 0;
+        }
         .card-body { height: 250px; }
         .card-img-top { max-height: 100px; object-fit: contain; }
+        .welcome-heading {
+            text-align: center;
+            padding: 50px 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
     </style>
 </head>
-<body class="bg-light">
+<body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Updated classes for a lighter navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark"> <!-- Updated classes for a transparent navbar -->
     <div class="container-fluid">
         <a class="navbar-brand" href="/">The Look</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,23 +68,7 @@
 </nav>
 
 <section class="container">
-    <h1>Welcome to TheLook Shop</h1>
-<!--    <div class="row">-->
-<!--        <c:forEach var="product" items="${product}">-->
-<!--            <div class="col-md-3">-->
-<!--                <div class="card mb-4 shadow-sm">-->
-<!--                    <img class="card-img-top" src="${product.image}" alt="Product Image">-->
-<!--                    <div class="card-body">-->
-<!--                        <h5 class="card-title">${product.name}</h5>-->
-<!--                        <p class="card-text">Category: ${product.category.name}</p>-->
-<!--                        <p class="card-text">Price: ${product.price}</p>-->
-<!--                        <p class="card-text">Description: ${product.description}</p>-->
-<!--                        <a href="#" class="btn btn-primary">Add to Cart</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </c:forEach>-->
-<!--    </div>-->
+    <h1 class="welcome-heading">Welcome to TheLook Shop</h1>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
