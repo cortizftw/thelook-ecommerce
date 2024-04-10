@@ -1,5 +1,55 @@
 ## Project Structure
-
+├───.idea
+│   ├───dataSources
+│   │   └───fb187602-6cdd-42f4-a779-3eb645753b98
+│   │       └───storage_v2
+│   │           └───_src_
+│   │               └───schema
+│   └───httpRequests
+├───.mvn
+│   └───wrapper
+├───src
+│   ├───main
+│   │   ├───java
+│   │   │   └───org
+│   │   │       └───example
+│   │   │           └───thelooker
+│   │   │               ├───config
+│   │   │               ├───controller
+│   │   │               ├───dto
+│   │   │               ├───model
+│   │   │               ├───repository
+│   │   │               ├───security
+│   │   │               └───service
+│   │   ├───resources
+│   │   │   ├───static
+│   │   │   └───templates
+│   │   └───webapp
+│   │       └───WEB-INF
+│   └───test
+│       ├───java
+│       │   └───org
+│       │       └───example
+│       │           └───thelooker
+│       └───resources
+└───target/
+|-- ├───classes
+|-- │   ├───org
+|-- │   │   └───example
+|-- │   │       └───thelooker
+|-- │   │           ├───config
+|-- │   │           ├───controller
+|-- │   │           ├───dto
+|-- │   │           ├───model
+|-- │   │           ├───repository
+|-- │   │           ├───security
+|-- │   │           └───service
+|-- │   ├───static
+|-- │   ├───templates
+|-- │   └───WEB-INF
+|-- ├───generated-sources
+|-- │   └───annotations
+`-- └───surefire-reports
 
 
 Database Connection - Oracle
