@@ -74,4 +74,22 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
 
+    @Override
+    public CustomerDto getCustomerById(Long id) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + id));
+        return convertToDto(customer);
+    }
+
+    // Helper method to convert Customer entity to CustomerDto
+    private CustomerDto convertToDto(Customer customer) {
+        CustomerDto dto = new CustomerDto();
+        dto.setId(customer.getId());
+        dto.setUsername(customer.getUsername());
+        dto.setEmail(customer.getEmail());
+        dto.setAddress(customer.getAddress());
+        // You might want to skip setting the password and role in the DTO
+        return dto;
+    }
+
 }

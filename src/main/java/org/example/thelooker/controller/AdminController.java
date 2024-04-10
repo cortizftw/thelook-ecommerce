@@ -20,9 +20,9 @@ public class AdminController {
 //        return "admin-products";
 //    }
 
-    @GetMapping("/admin/users")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    public String adminUsers() {
-        return "admin-users";
-    }
+//    @GetMapping("/admin/users")
+//    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+//    public String adminUsers() {
+//        return "admin-users";
+//    }
 }
