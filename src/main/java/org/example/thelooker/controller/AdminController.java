@@ -14,11 +14,11 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/admin/products")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
-    public String adminProducts() {
-        return "admin-products";
-    }
+//    @GetMapping("/admin/products")
+//    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+//    public String adminProducts() {
+//        return "admin-products";
+//    }
 
     @GetMapping("/admin/users")
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")

@@ -97,10 +97,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
 
-    @Override
-    public ProductDto getProductByName(String name) {
-        return null;
-    }
+
 
 
 }

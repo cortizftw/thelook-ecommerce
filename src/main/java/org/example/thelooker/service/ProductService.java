@@ -11,5 +11,5 @@ public interface ProductService {
     void createProduct(ProductDto productDto);
     List<ProductDto> getAllProducts();
     ProductDto getProductById(Long id);
-    ProductDto getProductByName(String name);
+
 }
