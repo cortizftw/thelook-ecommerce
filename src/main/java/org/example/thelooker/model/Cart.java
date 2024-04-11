@@ -20,8 +20,10 @@ import java.util.Set;
 public class Cart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_seq_generator")
+    @SequenceGenerator(name="cart_seq_generator", sequenceName = "CART_SEQ", allocationSize=1)
     private Long id;
+
 
     @OneToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")

@@ -23,9 +23,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         Customer customer = customerRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Invalid username or password."));
 
-        return new org.springframework.security.core.userdetails.User(
+        return new CustomUserPrincipal(
                 customer.getUsername(),
                 customer.getPassword(),
-                Collections.singletonList(new SimpleGrantedAuthority(customer.getRole())));
+                Collections.singletonList(new SimpleGrantedAuthority(customer.getRole())),
+                customer.getId());
     }
 }

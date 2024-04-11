@@ -49,17 +49,26 @@
                     <p class="card-text">Price: <strong th:text="${product.price}">Product Price</strong></p>
                 </div>
                 <div class="card-footer bg-transparent">
-                    <form th:action="@{/add-to-cart}" method="post">
+                    <form th:action="@{/cart/add}" method="post">
                         <input type="hidden" name="productId" th:value="${product.id}" />
-                        <input type="hidden" name="quantity" value="1" />
-                        <input type="submit" value="Add to Cart" />
+                        <input type="hidden" name="qty" value="1" />
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </form>
+
                     <a th:href="@{/product-detail/{id}(id=${product.id})}" class="btn btn-outline-primary">View Details</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var message = /*[[${message}]]*/ null;
+    if (message) {
+        alert(message);
+    }
+    /*]]>*/
+</script>
 
 </body>
 </html>

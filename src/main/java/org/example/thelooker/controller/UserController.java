@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import org.example.thelooker.security.CustomUserPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 @Controller
 public class UserController {
 
@@ -45,5 +47,12 @@ public class UserController {
         return "product-detail"; // name of the Thymeleaf template for product details
     }
 
-
+    public Long getCustomerId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof CustomUserPrincipal) {
+            CustomUserPrincipal userPrincipal = (CustomUserPrincipal) authentication.getPrincipal();
+            return userPrincipal.getCustomerId();
+        }
+        return null; // Handle this scenario as per your application's requirements
+    }
 }
