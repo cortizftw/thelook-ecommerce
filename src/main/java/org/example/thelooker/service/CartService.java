@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -59,5 +61,11 @@ public class CartService {
             newCartProduct.setQuantity(qty);
             cartProductRepository.save(newCartProduct);
         }
+    }
+
+    public List<CartProduct> getCartProductsByCustomerId(Long customerId) {
+        return cartRepository.findByCustomer_Id(customerId)
+                .map(cart -> new ArrayList<>(cart.getProducts()))
+                .orElse(new ArrayList<>());
     }
 }
